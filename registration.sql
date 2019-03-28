@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 27, 2019 at 07:37 PM
--- Server version: 5.7.17-log
--- PHP Version: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Mar 27, 2019 at 07:44 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,12 +29,12 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `registration` (
-  `id` int(11) NOT NULL,
-  `client_no` varchar(5) NOT NULL,
-  `branch_no` varchar(5) NOT NULL,
-  `staff_no` varchar(5) NOT NULL,
-  `date_joined` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id` int(5) NOT NULL,
+  `clintno` varchar(6) NOT NULL,
+  `branchno` varchar(6) NOT NULL,
+  `staffno` varchar(6) NOT NULL,
+  `datejoined` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -52,7 +54,9 @@ ALTER TABLE `registration`
 -- AUTO_INCREMENT for table `registration`
 --
 ALTER TABLE `registration`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

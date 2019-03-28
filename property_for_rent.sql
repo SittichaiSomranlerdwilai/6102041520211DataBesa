@@ -25,16 +25,21 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `property_for_rent`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `property_for_rent` (
   `id` int(5) NOT NULL,
-  `fname` varchar(30) NOT NULL,
-  `lname` varchar(30) NOT NULL,
-  `telno` varchar(11) NOT NULL,
-  `preftype` varchar(20) NOT NULL,
-  `maxrent` int(5) NOT NULL
+  `propertyno` varchar(10) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `position` varchar(50) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  `rooms` int(2) NOT NULL,
+  `rent` int(6) NOT NULL,
+  `ownerno` varchar(6) NOT NULL,
+  `staffno` varchar(6) NOT NULL,
+  `branchno` varchar(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,9 +47,9 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `property_for_rent`
 --
-ALTER TABLE `client`
+ALTER TABLE `property_for_rent`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,9 +57,9 @@ ALTER TABLE `client`
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `property_for_rent`
 --
-ALTER TABLE `client`
+ALTER TABLE `property_for_rent`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

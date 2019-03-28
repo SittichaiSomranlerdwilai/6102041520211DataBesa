@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.6
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Mar 27, 2019 at 05:46 PM
--- Server version: 5.7.17-log
--- PHP Version: 5.6.30
+-- Host: 127.0.0.1
+-- Generation Time: Mar 27, 2019 at 06:29 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -27,12 +29,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `branch` (
-  `id` int(11) NOT NULL,
-  `branch_no` varchar(5) NOT NULL,
-  `street` varchar(300) NOT NULL,
-  `city` varchar(300) NOT NULL,
-  `postcode` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `branchNo` int(4) NOT NULL,
+  `street` varchar(50) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `postcode` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Indexes for dumped tables
@@ -42,7 +43,7 @@ CREATE TABLE `branch` (
 -- Indexes for table `branch`
 --
 ALTER TABLE `branch`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`branchNo`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -52,7 +53,9 @@ ALTER TABLE `branch`
 -- AUTO_INCREMENT for table `branch`
 --
 ALTER TABLE `branch`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `branchNo` int(4) NOT NULL AUTO_INCREMENT;
+COMMIT;
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

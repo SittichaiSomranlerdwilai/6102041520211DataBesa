@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 07:43 PM
+-- Generation Time: Mar 27, 2019 at 07:44 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -25,16 +25,19 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `staff`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `staff` (
   `id` int(5) NOT NULL,
+  `staffno` varchar(10) NOT NULL,
   `fname` varchar(30) NOT NULL,
   `lname` varchar(30) NOT NULL,
-  `telno` varchar(11) NOT NULL,
-  `preftype` varchar(20) NOT NULL,
-  `maxrent` int(5) NOT NULL
+  `position` varchar(20) NOT NULL,
+  `sex` varchar(5) NOT NULL,
+  `dob` date NOT NULL,
+  `salary` int(7) NOT NULL,
+  `branchno` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,9 +45,9 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `staff`
 --
-ALTER TABLE `client`
+ALTER TABLE `staff`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,9 +55,9 @@ ALTER TABLE `client`
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `staff`
 --
-ALTER TABLE `client`
+ALTER TABLE `staff`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 

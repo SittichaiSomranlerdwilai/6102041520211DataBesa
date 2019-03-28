@@ -25,16 +25,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `client`
+-- Table structure for table `privateowner`
 --
 
-CREATE TABLE `client` (
+CREATE TABLE `privateowner` (
   `id` int(5) NOT NULL,
+  `ownerno` varchar(6) NOT NULL,
   `fname` varchar(30) NOT NULL,
   `lname` varchar(30) NOT NULL,
-  `telno` varchar(11) NOT NULL,
-  `preftype` varchar(20) NOT NULL,
-  `maxrent` int(5) NOT NULL
+  `address` varchar(50) NOT NULL,
+  `telno` varchar(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -42,9 +42,9 @@ CREATE TABLE `client` (
 --
 
 --
--- Indexes for table `client`
+-- Indexes for table `privateowner`
 --
-ALTER TABLE `client`
+ALTER TABLE `privateowner`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -52,9 +52,9 @@ ALTER TABLE `client`
 --
 
 --
--- AUTO_INCREMENT for table `client`
+-- AUTO_INCREMENT for table `privateowner`
 --
-ALTER TABLE `client`
+ALTER TABLE `privateowner`
   MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
