@@ -1,68 +1,28 @@
--- phpMyAdmin SQL Dump
--- version 4.8.2
--- https://www.phpmyadmin.net/
---
--- Host: 127.0.0.1
--- Generation Time: Mar 27, 2019 at 07:43 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+DROP TABLE IF EXISTS `property_for_rent`;
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
---
--- Database: `dreamhome`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `property_for_rent`
---
-
-CREATE TABLE `property_for_rent` (
-  `id` int(5) NOT NULL,
-  `propertyno` varchar(10) NOT NULL,
-  `street` varchar(50) NOT NULL,
-  `city` varchar(50) NOT NULL,
-  `position` varchar(50) NOT NULL,
-  `type` varchar(20) NOT NULL,
-  `rooms` int(2) NOT NULL,
-  `rent` int(6) NOT NULL,
-  `ownerno` varchar(6) NOT NULL,
-  `staffno` varchar(6) NOT NULL,
-  `branchno` varchar(6) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `property_for_rent`
---
-ALTER TABLE `property_for_rent`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `property_for_rent`
---
-ALTER TABLE `property_for_rent`
-  MODIFY `id` int(5) NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE IF NOT EXISTS `std6102041520165`.`property_for_rent` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `property_no` VARCHAR(5) NULL DEFAULT NULL,
+  `type` VARCHAR(50) NULL DEFAULT NULL,
+  `rooms` INT(5) NULL DEFAULT NULL,
+  `rent` FLOAT(7,2) NULL DEFAULT NULL,
+  `private_owner_id` INT(11) NULL DEFAULT NULL,
+  `staff_id` INT(11) NULL DEFAULT NULL,
+  `branch_id` INT(11) NULL DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `branch_id` (`branch_id` ASC),
+  INDEX `private_owner_id` (`private_owner_id` ASC),
+  INDEX `staff_id` (`staff_id` ASC),
+  CONSTRAINT `fk_pfr_private_owner_id`
+    FOREIGN KEY (`private_owner_id`)
+    REFERENCES `std6102041520165`.`private_owner` (`id`),
+  CONSTRAINT `fk_pfr_staff_id`
+    FOREIGN KEY (`staff_id`)
+    REFERENCES `std6102041520165`.`staff` (`id`),
+  CONSTRAINT `fk_pfr_branch_id`
+    FOREIGN KEY (`branch_id`)
+    REFERENCES `std6102041520165`.`branch` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
